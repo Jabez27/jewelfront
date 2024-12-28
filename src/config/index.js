@@ -62,7 +62,6 @@ export const addProductFormElements = [
       { id: "women", label: "Women" },
       { id: "kids", label: "Kids" },
       { id: "accessories", label: "Accessories" },
-      { id: "footwear", label: "Footwear" },
     ],
   },
   {
@@ -70,12 +69,22 @@ export const addProductFormElements = [
     name: "brand",
     componentType: "select",
     options: [
-      { id: "nike", label: "Nike" },
-      { id: "adidas", label: "Adidas" },
-      { id: "puma", label: "Puma" },
-      { id: "levi", label: "Levi's" },
-      { id: "zara", label: "Zara" },
-      { id: "h&m", label: "H&M" },
+      {
+        id: "earrings",
+        label: "Earrings",
+        },
+      {
+        id: "rings",
+        label: "Rings",
+        },
+      {
+        id: "pendants",
+        label: "Pendants",
+        },
+      {
+        id: "bracelets",
+        label: "Bracelets",
+        },
     ],
   },
   {
@@ -127,11 +136,7 @@ export const shoppingViewHeaderMenuItems = [
     label: "Kids",
     path: "/shop/listing",
   },
-  {
-    id: "footwear",
-    label: "Footwear",
-    path: "/shop/listing",
-  },
+ 
   {
     id: "accessories",
     label: "Accessories",
@@ -149,16 +154,14 @@ export const categoryOptionsMap = {
   women: "Women",
   kids: "Kids",
   accessories: "Accessories",
-  footwear: "Footwear",
 };
 
 export const brandOptionsMap = {
-  nike: "Nike",
-  adidas: "Adidas",
-  puma: "Puma",
-  levi: "Levi",
-  zara: "Zara",
-  "h&m": "H&M",
+  earring: "Earring",
+  rings: "Rings",
+  pendants: "Pendants",
+  bracelets: "Bracelets",
+  
 };
 
 export const filterOptions = {
@@ -167,15 +170,12 @@ export const filterOptions = {
     { id: "women", label: "Women" },
     { id: "kids", label: "Kids" },
     { id: "accessories", label: "Accessories" },
-    { id: "footwear", label: "Footwear" },
   ],
   brand: [
-    { id: "nike", label: "Nike" },
-    { id: "adidas", label: "Adidas" },
-    { id: "puma", label: "Puma" },
-    { id: "levi", label: "Levi's" },
-    { id: "zara", label: "Zara" },
-    { id: "h&m", label: "H&M" },
+    { id: "earring", label: "Earring" },
+    { id: "rings", label: "Rings" },
+    { id: "pendants", label: "Pendants" },
+    { id: "bracelets", label: "Bracelets" },
   ],
 };
 

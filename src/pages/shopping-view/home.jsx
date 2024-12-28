@@ -3,22 +3,15 @@ import bannerOne from "../../assets/banner-1.webp";
 import bannerTwo from "../../assets/banner-2.webp";
 import bannerThree from "../../assets/banner-3.webp";
 import {
-  Airplay,
-  BabyIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  CloudLightning,
-  Heater,
-  Images,
-  Shirt,
   ShirtIcon,
-  ShoppingBasket,
-  UmbrellaIcon,
-  WashingMachine,
+  CloudLightning,
+  BabyIcon,
   WatchIcon,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAllFilteredProducts,
@@ -36,17 +29,35 @@ const categoriesWithIcon = [
   { id: "women", label: "Women", icon: CloudLightning },
   { id: "kids", label: "Kids", icon: BabyIcon },
   { id: "accessories", label: "Accessories", icon: WatchIcon },
-  { id: "footwear", label: "Footwear", icon: UmbrellaIcon },
 ];
 
-const brandsWithIcon = [
-  { id: "nike", label: "Nike", icon: Shirt },
-  { id: "adidas", label: "Adidas", icon: WashingMachine },
-  { id: "puma", label: "Puma", icon: ShoppingBasket },
-  { id: "levi", label: "Levi's", icon: Airplay },
-  { id: "zara", label: "Zara", icon: Images },
-  { id: "h&m", label: "H&M", icon: Heater },
+const brandsWithImages = [
+  {
+    id: "earrings",
+    label: "Earrings",
+    image:
+      "https://res.cloudinary.com/dsmgpae8x/image/upload/v1735350196/aumjvqe8kisflijwnohb.png",
+  },
+  {
+    id: "rings",
+    label: "Rings",
+    image:
+      "https://res.cloudinary.com/dsmgpae8x/image/upload/v1735350195/ol0ojiffrhshtwvxflmg.png",
+  },
+  {
+    id: "pendants",
+    label: "Pendants",
+    image:
+      "https://res.cloudinary.com/dsmgpae8x/image/upload/v1735350196/bz93uapaqrxswzcepsrj.png",
+  },
+  {
+    id: "bracelets",
+    label: "Bracelets",
+    image:
+      "https://res.cloudinary.com/dsmgpae8x/image/upload/v1735350196/ojfzwhlf9ujhuyzyzcux.png",
+  },
 ];
+
 function ShoppingHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { productList, productDetails } = useSelector(
@@ -188,13 +199,17 @@ function ShoppingHome() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Shop by Brand</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {brandsWithIcon.map((brandItem) => (
+            {brandsWithImages.map((brandItem) => (
               <Card
                 onClick={() => handleNavigateToListingPage(brandItem, "brand")}
                 className="cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <CardContent className="flex flex-col items-center justify-center p-6">
-                  <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
+                  <img
+                    src={brandItem.image}
+                    alt={brandItem.label}
+                    className="w-12 h-12 mb-4"
+                  />
                   <span className="font-bold">{brandItem.label}</span>
                 </CardContent>
               </Card>

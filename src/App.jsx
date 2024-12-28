@@ -40,49 +40,15 @@ function App() {
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
-        {/* WordPress Pages */}
         <Route
           path="/"
           element={
-            <iframe
-              src="https://jewwel.netlify.app"
-              title="Home"
-              className="w-full h-screen"
-            />
+            <CheckAuth
+              isAuthenticated={isAuthenticated}
+              user={user}
+            ></CheckAuth>
           }
         />
-        <Route
-          path="/about"
-          element={
-            <iframe
-              src="https://jewwel.netlify.app/about"
-              title="About Us"
-              className="w-full h-screen"
-            />
-          }
-        />
-        <Route
-          path="/services"
-          element={
-            <iframe
-              src="https://jewwel.netlify.app/services"
-              title="Services"
-              className="w-full h-screen"
-            />
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <iframe
-              src="https://jewwel.netlify.app/contact"
-              title="Contact Us"
-              className="w-full h-screen"
-            />
-          }
-        />
-
-        {/* React App Pages */}
         <Route
           path="/auth"
           element={
