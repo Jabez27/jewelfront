@@ -49,14 +49,26 @@ function ProductImageUpload({
     setImageLoadingState(true);
     const data = new FormData();
     data.append("my_file", imageFile);
-    const response = await axios.post(
-      "https://jewelback-1.onrender.com/api/admin/products/upload-image",
-      data
-    );
-    console.log(response, "response");
-
-    if (response?.data?.success) {
-      setUploadedImageUrl(response.data.result.url);
+  
+    try {
+      const response = await axios.post(
+        "https://jewelback-1.onrender.com/api/admin/products/upload-image",
+        data
+      );
+      console.log(response, "response");
+  
+      if (response?.data?.success) {
+        // Ensure HTTPS is enforced in the uploaded image URL
+        let secureUrl = response.data.result.url;
+        if (secureUrl.startsWith("http://")) {
+          secureUrl = secureUrl.replace("http://", "https://");
+        }
+  
+        setUploadedImageUrl(secureUrl);
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    } finally {
       setImageLoadingState(false);
     }
   }
